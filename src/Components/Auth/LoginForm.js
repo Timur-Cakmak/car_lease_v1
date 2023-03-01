@@ -1,11 +1,9 @@
-import { Form, Link, redirect, useRouteLoaderData } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { getAuthToken } from "../../Util/auth";
 import classes from "./LoginForm.module.css";
 import Card from "../UI/Card";
 
 const LoginForm = ({ method, agencyStaff }) => {
-	// const agencyStaff = useRouteLoaderData("agency-staff-detail");
-
 	return (
 		<Card>
 			<Form method={method} className={classes.form}>
@@ -41,7 +39,7 @@ const LoginForm = ({ method, agencyStaff }) => {
 
 export default LoginForm;
 
-export async function loginUserAction({ request, params }) {
+export async function loginUserAction({ request }) {
 	const method = request.method;
 	const formData = await request.formData();
 
@@ -60,20 +58,16 @@ export async function loginUserAction({ request, params }) {
 	console.log(response);
 
 	const resData = await response.json();
-	console.log(resData);
 	const token = resData;
-	const id = resData.id;
 
 	localStorage.setItem("token", JSON.stringify(token));
 
 	if (response.ok) {
-		console.log(response);
-		console.log(loginData);
 		const token = getAuthToken();
 		const id = token.id;
 		return redirect(`/user/${id}`);
 	} else {
-		console.error("Login failed.");
+		console.error("Connexion échoué.");
 	}
 }
 
