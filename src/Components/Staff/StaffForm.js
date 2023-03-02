@@ -1,4 +1,4 @@
-import { Form, redirect } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 import AuthHeader from "../../Service/AuthHeader";
 import classes from "../NewForm.module.css";
 
@@ -33,7 +33,10 @@ const StaffForm = ({ method, appUser }) => {
 			</p>
 
 			<p className={classes.actions}>
-				<button>Submit</button>
+				<Link to={".."} className={classes.button} type="button">
+					Retour
+				</Link>
+				<button>Envoyer</button>
 			</p>
 		</Form>
 	);

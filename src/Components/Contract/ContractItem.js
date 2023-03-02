@@ -27,9 +27,9 @@ const ContractItem = () => {
 				<Link to={".."} className={classes.button}>
 					retour
 				</Link>
-				<Link to={"edit"} className={classes.button}>
+				{/* <Link to={"edit"} className={classes.button}>
 					Editer
-				</Link>
+				</Link> */}
 				<button className={classes.button} onClick={deleteHandler}>
 					Supprimer
 				</button>

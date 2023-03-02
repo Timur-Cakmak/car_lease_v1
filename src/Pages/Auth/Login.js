@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, redirect, useRouteLoaderData } from "react-router-dom";
+import { redirect, useRouteLoaderData } from "react-router-dom";
 import LoginForm from "../../Components/Auth/LoginForm";
 import AuthHeader from "../../Service/AuthHeader";
 
@@ -9,7 +9,7 @@ const LoginPage = () => {
 	if (!user) {
 		return <LoginForm method={"post"} />;
 	} else {
-		return redirect("/");
+		return redirect(`/user/${user.id}`);
 	}
 };
 
@@ -24,9 +24,5 @@ export async function getAgencyDetailLoader({ params }) {
 	);
 
 	const agency = await response.json();
-	console.log(params.id);
-	console.log(response);
-	console.log(agency);
-	console.log(response.headers);
 	return agency;
 }

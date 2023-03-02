@@ -33,5 +33,5 @@ export async function deleteContractAction({ params, request }) {
 	);
 	console.log(response);
 
-	return redirect(`/${params.userId}/${params.agencyId}/contract`);
+	return redirect(`/user/${params.userId}/agency/${params.agencyId}/contract`);
 }

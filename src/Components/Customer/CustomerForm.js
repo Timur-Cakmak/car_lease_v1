@@ -1,4 +1,4 @@
-import classes from "../Item.module.css";
+import classes from "../NewForm.module.css";
 import { Form, Link, redirect } from "react-router-dom";
 import AuthHeader from "../../Service/AuthHeader";
 import { getAuthToken } from "../../Util/auth";
@@ -84,10 +84,10 @@ const CustomerForm = ({ method, customer }) => {
 			</p>
 
 			<p className={classes.actions}>
-				<Link to={".."} type="button">
-					Cancel
+				<Link to={".."} className={classes.button} type="button">
+					Retour
 				</Link>
-				<button>Submit</button>
+				<button>Envoyer</button>
 			</p>
 		</Form>
 	);

@@ -19,10 +19,6 @@ export async function getAgencyDetailLoader({ params }) {
 	);
 
 	const agency = await response.json();
-	console.log(params.id);
-	console.log(response);
-	console.log(agency);
-	console.log(response.headers);
 	return agency;
 }
 

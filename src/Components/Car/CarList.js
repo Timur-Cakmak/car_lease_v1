@@ -1,10 +1,11 @@
 import classes from "../List.module.css";
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link, useParams, useRouteLoaderData } from "react-router-dom";
 import { MdPostAdd, MdArrowBack } from "react-icons/md";
 import StaticCard from "../UI/StaticCard";
 
 const CarList = ({ cars }) => {
 	const user = useRouteLoaderData("root");
+	let { agencyId } = useParams();
 	console.log(cars);
 	return (
 		<>
@@ -26,7 +27,7 @@ const CarList = ({ cars }) => {
 				{cars.map((car) => (
 					<Link
 						key={car.id}
-						to={`/user/${user.id}/agency/${car.agency.id}/car/${car.id}`}
+						to={`/user/${user.id}/agency/${agencyId}/car/${car.id}`}
 					>
 						<li key={car.id} className={classes.post}>
 							<p className={classes.text}>{car.brand}</p>

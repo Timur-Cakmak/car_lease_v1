@@ -1,9 +1,11 @@
 import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
+import { getUserRole } from "../../Util/auth";
 import classes from "../Item.module.css";
 import Card from "../UI/Card";
 
 const CarItem = () => {
 	const car = useRouteLoaderData("car");
+	const userRole = getUserRole();
 	const submit = useSubmit();
 
 	function deleteHandler() {
@@ -19,14 +21,18 @@ const CarItem = () => {
 			<Link to={".."} className={classes.button}>
 				Retour à la liste
 			</Link>
-			<Link to={"edit"} className={classes.button}>
-				Editer
-			</Link>
 
-			<button className={classes.button} onClick={deleteHandler}>
-				Supprimer
-			</button>
+			{(userRole === "ROLE_ADMIN" || userRole === "ROLE_MANAGER") && (
+				<Link to={"edit"} className={classes.button}>
+					Editer
+				</Link>
+			)}
 
+			{(userRole === "ROLE_ADMIN" || userRole === "ROLE_MANAGER") && (
+				<button className={classes.button} onClick={deleteHandler}>
+					Supprimer
+				</button>
+			)}
 			<Card>
 				<p className={classes.text}>Immatriculation : {car.registration}</p>
 			</Card>

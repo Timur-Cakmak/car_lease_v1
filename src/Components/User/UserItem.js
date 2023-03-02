@@ -29,17 +29,13 @@ const UserItem = ({ user }) => {
 				</p>
 				<p className={classes.text}>{user.agency.city}</p>
 				<Link to={`agency/${user.agency.id}`}>
-					<button>Votre Tableaux de Bord</button>
+					<button className={classes.button}>Votre Tableaux de Bord</button>
 				</Link>
 			</Card>
 
 			<Card>
 				<p className={classes.text}>Matricule : {user.matricule}</p>
 			</Card>
-
-			{/* {user.appUser.roles.map((role, index) => (
-				<p key={index}>{role.roleName}</p>
-			))} */}
 
 			<Card>
 				{user.appUser.roles.map((role, index) => (

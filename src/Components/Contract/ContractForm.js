@@ -1,7 +1,7 @@
 import { Form, Link, redirect, useParams } from "react-router-dom";
 import AuthHeader from "../../Service/AuthHeader";
-import classes from "../Item.module.css";
 
+import classes from "../NewForm.module.css";
 const ContractForm = ({ method, contract }) => {
 	return (
 		<Form method={method} className={classes.form}>
@@ -51,10 +51,10 @@ const ContractForm = ({ method, contract }) => {
 			</p>
 
 			<p className={classes.actions}>
-				<Link to={".."} type="button">
-					Cancel
+				<Link to={".."} className={classes.button} type="button">
+					Retour
 				</Link>
-				<button>Submit</button>
+				<button>Envoyer</button>
 			</p>
 		</Form>
 	);

@@ -51,10 +51,10 @@ const AgencyForm = ({ method, agency }) => {
 			</p>
 
 			<p className={classes.actions}>
-				<Link to={".."} type="button">
-					Cancel
+				<Link to={".."} className={classes.button} type="button">
+					Retour
 				</Link>
-				<button>Submit</button>
+				<button>Envoyer</button>
 			</p>
 		</Form>
 	);

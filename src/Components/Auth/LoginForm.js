@@ -3,30 +3,18 @@ import { getAuthToken } from "../../Util/auth";
 import classes from "./LoginForm.module.css";
 import Card from "../UI/Card";
 
-const LoginForm = ({ method, agencyStaff }) => {
+const LoginForm = ({ method }) => {
 	return (
 		<Card>
 			<Form method={method} className={classes.form}>
 				<p>
 					<label htmlFor="email">Email</label>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						required
-						defaultValue={agencyStaff ? agencyStaff.email : ""}
-					/>
+					<input type="email" id="email" name="email" required />
 				</p>
 
 				<p>
 					<label htmlFor="password">Password</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						required
-						defaultValue={agencyStaff ? agencyStaff.password : ""}
-					/>
+					<input type="password" id="password" name="password" required />
 				</p>
 
 				<p>
@@ -55,7 +43,6 @@ export async function loginUserAction({ request }) {
 		},
 		body: JSON.stringify(loginData),
 	});
-	console.log(response);
 
 	const resData = await response.json();
 	const token = resData;
